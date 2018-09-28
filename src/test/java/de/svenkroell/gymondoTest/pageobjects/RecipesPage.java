@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+
 public class RecipesPage extends BasePage {
     @FindBy(id = "sb-recipes")
     private WebElement searchBox;
@@ -25,9 +27,8 @@ public class RecipesPage extends BasePage {
     }
 
     public RecipeDetailsPage openRecipe(String recipeName) {
-        WebElement element = driver.findElement(
-                By.xpath("//div[text()[contains(.,\"" + recipeName + "\")]]"));
-        element.click();
+        By recipeXPath = By.xpath("//div[text()[contains(.,\"" + recipeName + "\")]]");
+        wait.until(presenceOfElementLocated(recipeXPath)).click();
         return initPage(RecipeDetailsPage.class);
     }
 }
