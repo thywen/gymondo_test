@@ -1,6 +1,7 @@
 plugins {
     id "com.energizedwork.webdriver-binaries" version "1.4"
     id "java"
+    id "idea"
 }
 
 group 'de.svenkroell'
@@ -15,12 +16,11 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.14.0'
 }
 
 webdriverBinaries {
-    chromedriver '2.32'
+    chromedriver '2.42'
 }
 
-test {
-    configureChromeDriverBinary
-}
+ideaWorkspace.dependsOn configureChromeDriverBinary

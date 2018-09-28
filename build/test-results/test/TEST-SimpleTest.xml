@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="SimpleTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-09-28T10:41:48" hostname="Novodas-MBP-2.localdomain" time="7.87">
+  <properties/>
+  <testcase name="name" classname="SimpleTest" time="7.87"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 2.42.591059 (a3d9684d10d61aa0c45f6723b327283be1ebaad8) on port 17753
+Only local connections are allowed.
+Sep 28, 2018 12:41:50 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+]]></system-err>
+</testsuite>
