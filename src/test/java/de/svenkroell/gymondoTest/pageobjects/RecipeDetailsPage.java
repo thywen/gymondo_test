@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RecipeDetailsPage extends BasePage {
-    @FindBy(css = "recipe-summary__header")
+    @FindBy(css = "h2.recipe-summary__header")
     private WebElement recipeHeader;
 
     private static String URL = Constants.BASE_URL + "secure/#/recipes/";

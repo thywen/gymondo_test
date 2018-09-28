@@ -40,13 +40,13 @@ public class SimpleTest {
     @Test
     public void name() throws Exception {
         User user = userRepository.getStandardUser();
-        String recipe = "Rogg'n Roll";
+        String recipe = "Rogg 'n Roll";
 
-        //LoggedInMainPage loggedInMainPage = mainPage.login(user);
-//        RecipesPage recipesPage = loggedInMainPage.openRecipesPage();
-//        recipesPage.searchRecipe(recipe);
-//        RecipeDetailsPage recipeDetailsPage = recipesPage.openRecipe(recipe);
-//
-//        assertThat(recipeDetailsPage.getRecipeName()).isEqualTo(recipe);
+        LoggedInMainPage loggedInMainPage = mainPage.login(user);
+        RecipesPage recipesPage = loggedInMainPage.openRecipesPage();
+        recipesPage.searchRecipe(recipe);
+        RecipeDetailsPage recipeDetailsPage = recipesPage.openRecipe(recipe);
+
+        assertThat(recipeDetailsPage.getRecipeName()).isEqualTo(recipe);
     }
 }

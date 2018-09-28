@@ -10,20 +10,24 @@ public class RecipesPage extends BasePage {
     @FindBy(id = "sb-recipes")
     private WebElement searchBox;
 
-    private static String URL = "/secure/#/recipes?page=0&size=16&sort=popularity";
+    @FindBy(css = "div.sb-search__btn")
+    private WebElement searchButton;
+
+    private static String URL = Constants.BASE_URL + "/secure/#/recipes?page=0&size=16&sort=popularity";
 
     public RecipesPage(WebDriver driver) {
         super(driver, URL);
     }
 
     public void searchRecipe(String recipeName) {
-        searchBox.sendKeys(recipeName);
+        saveSendKeys(searchBox, recipeName);
+        searchButton.click();
     }
 
     public RecipeDetailsPage openRecipe(String recipeName) {
-        driver.findElement(
-                By.xpath("//*[contains(text(), " + recipeName + ")]"))
-                .click();
+        WebElement element = driver.findElement(
+                By.xpath("//div[text()[contains(.,\"" + recipeName + "\")]]"));
+        element.click();
         return initPage(RecipeDetailsPage.class);
     }
 }

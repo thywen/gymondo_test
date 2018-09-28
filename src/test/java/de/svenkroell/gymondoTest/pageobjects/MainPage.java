@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class MainPage extends BasePage {
     @FindBy(css = "button.btn-rev--ghost.header__login-btn")
@@ -29,7 +28,7 @@ public class MainPage extends BasePage {
 
     public LoggedInMainPage login(User user) {
         openLoginPopup();
-        emailField.sendKeys(user.getEmail());
+        saveSendKeys(emailField, user.getEmail());
         passwordField.sendKeys(user.getPassword());
         loginButton.click();
         return initPage(LoggedInMainPage.class);
@@ -37,6 +36,5 @@ public class MainPage extends BasePage {
 
     private void openLoginPopup() {
         headerLoginButton.click();
-        wait.until(visibilityOf(emailField));
     }
 }

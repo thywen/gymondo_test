@@ -16,7 +16,7 @@ public class LoggedInMainPage extends BasePage {
     }
 
     public RecipesPage openRecipesPage() {
-        recipesTab.click();
+        saveClick(recipesTab);
         return initPage(RecipesPage.class);
     }
 }
